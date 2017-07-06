@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, height=device-height" />
+        <meta charset="utf-8" />
+        <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
+        <link href="styles/main.css" rel="stylesheet" />
+
+
+        
+        <script src="cordova.js"></script>
+        <script src="kendo/js/jquery.min.js"></script>
+        <script src="kendo/js/kendo.mobile.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
+          
+        <script src="scripts/app.js"></script>
+        <script src="scripts/login.js"></script>
+        <script src="scripts/scan.js"></script>
+        <script src="scripts/fileHelper.js"></script>
+        
+          
+          
+
+
+    </head>
+    <body >
+         
+        
+        
+        <!--Signin-->
+  <!--      <div id="tabstrip-signin" 
+             data-role="view"  
+             data-title="RateApp">
+ 
+            <div class="view-content" >
+                <div class="home-ekrani">
+                 
+                <h1>Kullanıcı Girişi</h1>
+                <a id="skin-change" data-role="button">Giriş</a>
+                  <div id="css3table">
+                        <div id="row">
+                        <div id="left">
+                        E-mail 
+                        </div>
+                        <div id="middle">
+                            :
+                        </div>
+                        <div id="right">
+                            <input id="email" type="text" style="color:#00f" value="" />
+                        </div>
+                        </div>
+                        
+                        <div id="row">
+                        <div id="left">
+                        Şifre
+                        </div>
+                        <div id="middle">
+                            :
+                        </div>
+                        <div id="right">
+                         	<input id="password" type="password" style="color:#00f" value="" />
+                        </div>
+                        </div>
+                     
+                        </div>
+                     <div id="css3table" >
+                        <div id="signinleft">
+                           <a id="signin" > Şifremi unuttum</a>
+                        </div>
+                          
+                        </div>
+                    
+
+                    
+                <p id="dene">
+                    
+                </p>
+                </div>
+            </div>
+        </div> 
+        
+      -->  
+        <!--Home-->
+   <!--     <div id="tabstrip-home" 
+             data-role="view"  
+             data-title="RateApp">
+
+            <div class="view-content" data-bind="invisible:isSignup" >
+                <h1>RateApp</h1>
+                <a id="skin-change" data-role="button" data-click="app.confirm">Giriş</a>
+                <p>
+                    Onay kodunu giriniz.
+                </p>
+                <p>
+                    Onay Kodu:
+                    <input id= "validate" type="text" style="color:#00f" value="" />
+                </p>
+                
+                <a id="modalview-login-button" data-role="button" data-click="" >Yeni Onay Kodu</a>
+            </div>
+        </div>
+  
+		 <!--Home2-->
+  <!--     
+        <div id="tabstrip-dil" 
+             data-role="view"  
+             >
+            
+            <div id="dilSecenegi" >
+                <center>
+                <table>
+                    <tbody>
+                    <tr>
+                    	<td>
+                            <center>
+                                <img id="rateapp_icon" src="./styles/images/R8Applogo.png"  style="margin-top:40px"/>
+                            </center>
+                            </td>
+                        </tr>
+                        
+                       <tr>
+                        <td>
+                            <center>
+                                
+                                <a class="buttonlar" data-role="button" id="english" data-theme="a" data-click="app.setEng" href="#tabstrip-home2">English</a>
+                            </center>
+                        </td>
+                           </tr>
+                        <tr>
+                        <td>
+                            <center>
+                                <a class="buttonlar" data-role="button" id="turkish"  data-click="app.setTurk" href="#tabstrip-home2" >Turkish </a>
+                        	</center>
+                            </td>
+                    </tr>
+                        </tbody>
+                </table>
+                    </center>
+                   </div>
+            
+             
+            
+        </div> 
+ -->                      
+        <!--Home2-->
+       
+        <div id="tabstrip-home2" 
+             data-role="view" >
+            
+            <div id="anaekran" >
+                <center>
+                <table>
+                    <tbody>
+                    <tr>
+                    	<td>
+                            <center>
+                                <img id="rateapp_icon" src="./styles/images/R8Applogo.png"  style="margin-top:40px"/>
+                            </center>
+                            </td>
+                        </tr>
+                        
+                       <tr>
+                        <td>
+                            <center>
+                                
+                                <a class="buttonlar" data-role="button" id="degerlendirme" data-theme="a" data-click="app.onDeviceReady" href="#tabstrip-home3">DEĞERLENDİRME</a>
+                            </center>
+                        </td>
+                           </tr>
+                        <tr>
+                        <td>
+                            <center>
+                                <a class="buttonlar" data-role="button" id="yorumlama"  data-click="app.reset" href="#tabstrip-companysearch" >YORUMLAR</a>
+                        	</center>
+                            </td>
+                    </tr>
+                        </tbody>
+                </table>
+                    </center>
+                   </div>
+            
+                       
+                
+  
+                <p id="textdene">
+                    <br>
+                </p>
+ 
+           
+           
+             
+            
+        </div>
+		
+		<!--Kayit olma ekrani-->
+        <div id="tabstrip-kayitol" 
+             data-role="view">
+			<header data-role="header" class="checkout" style="float:none;">
+               <table width="100%">
+                    <tr>
+                    	<td width="33%">
+                        	<a id="back-button" data-role="backbutton"  data-rel="back" data-icon="reply" >Geri</a>
+                        </td>
+                        <td width="33%">
+                        	<span data-role="view-title" id="view-home" >
+                            <center><img id="r8app_icon" src="./styles/images/R8Applogo.png" width="82px" height="39px" /></center>
+                            </span>
+                        </td>
+                        <td width="33%" align="right">
+                            <a id="skin-change" data-role="button"  data-click="app.login" >Kayıt</a> 
+                        </td>
+                    </tr>
+                </table>
+            </header>
+             
+            <div class="view-content" >
+                <div class="home-ekrani">
+                  <p style="font-weight:bold;"> Kayıt Ekranı </p>
+                  <div id="css3table">
+                        <div id="row">
+	                        <div id="left">
+	                        E-mail 
+	                        </div>
+	                        <div id="middle">
+	                            :
+	                        </div>
+	                        <div id="right">
+	                            <input id="email" type="text" style="color:#00f" value="" />
+	                        </div>
+                        </div>
+                        <div id="row">
+	                        <div id="left">
+	                       	İsim Soyisim
+	                        </div>
+	                        <div id="middle">
+	                            :
+	                        </div>
+	                        <div id="right">
+	                            <input id="name" type="text" style="color:#00f" value="" />
+	                        </div>
+                        </div>
+                        
+                   </div>
+                     <div id="css3table" >
+                        <!--
+						 <div id="signinleft">
+                           <a id="signin" href="#tabstrip-signin" > Hesap bilgileriniz varsa tıklayınız</a>
+                        </div>
+                          -->
+                        </div>
+                    
+
+                    
+                <p id="dene" padding-bottom="200px">
+                    
+                </p>
+                </div>
+            </div>
+            
+            
+        </div>
+		
+		<!--Kayitli kullanici-->
+        <div id="tabstrip-registeredUser" 
+             data-role="view">
+			<header data-role="header" class="checkout" style="float:none;">
+               <table width="100%">
+                    <tr>
+                    	<td width="33%">
+                        	<a id="back-button" data-role="backbutton"  data-rel="back" data-icon="reply" >Geri</a>
+                        </td>
+                        <td width="33%">
+                        	<span data-role="view-title" id="view-home" >
+                            <center><img id="r8app_icon" src="./styles/images/R8Applogo.png" width="82px" height="39px" /></center>
+                            </span>
+                        </td>
+                        <td width="33%" align="right">
+                            <a id="skin-change" data-role="button"  data-click="app.login" style="visibility:hidden" >Kayıt</a> 
+                        </td>
+                    </tr>
+                </table>
+            </header>
+             
+            <div class="view-content" >
+                <div class="home-ekrani">
+                  <p style="font-weight:bold; color:black;"> Hesap Bilgileri </p>
+                  <div id="css3table">
+                        <div id="row">
+	                        <div id="left" style="font-weight:bold">
+	                        E-mail 
+	                        </div>
+	                        <div id="middle" style="font-weight:bold">
+	                            :
+	                        </div>
+	                        <div id="right">
+	                            <div id="useremail"></div>
+	                        </div>
+                        </div>
+                        <div id="row">
+	                        <div id="left" style="font-weight:bold">
+	                       	İsim Soyisim
+	                        </div>
+	                        <div id="middle" style="font-weight:bold">
+	                            :
+	                        </div>
+	                        <div id="right">
+	                            <div id="username"></div>
+	                        </div>
+                        </div>
+                        
+                   </div>
+                     <div id="css3table" >
+                        <!--
+						 <div id="signinleft">
+                           <a id="signin" href="#tabstrip-signin" > Hesap bilgileriniz varsa tıklayınız</a>
+                        </div>
+                          -->
+                        </div>
+                    
+
+                    
+                <p id="dene" padding-bottom="200px">
+                    
+                </p>
+                </div>
+            </div>
+            
+            
+        </div>
+        
+        <!--Yorumlar company arama-->
+          
+        <div id="tabstrip-companysearch" 
+             data-role="view" >
+            <header data-role="header" class="checkout" style="float:none;">
+               <table width="100%">
+                    <tr>
+                    	<td width="33%">
+                        	<a id="back-button" data-role="backbutton"  data-rel="back" data-icon="reply" >Geri</a>
+                        </td>
+                        <td width="33%">
+                        	<span data-role="view-title" id="view-home" >
+                            <center><img id="r8app_icon" src="./styles/images/R8Applogo.png" width="82px" height="39px" /></center>
+                            </span>
+                        </td>
+                        <td width="33%">
+                            <p>
+                                
+                            </p> 
+                        </td>
+                    </tr>
+                </table>
+            </header>
+            <div style="margin-top:25px;" id="companysearch">
+                
+                <ul  data-role="listview" data-style="inset">
+                    <li>
+                        <label for="companyName" display="inline-block">Firma adı giriniz: <input type="text" id="companyName" style="color:#000"/></label>
+                    </li>
+                </ul>
+               <a data-click="app.companySearch" class="buttonlar" id="modalview-login-button" data-role="button" style="float:right; width:50px;">Ara</a>
+   
+                 
+                <p id="text">
+                    <br>
+                </p>
+ 
+            </div> 
+             
+            
+        </div>
+        
+        <!--Company List-->
+        
+        <div id="tabstrip-companyList" 
+             data-role="view" >
+            <header data-role="header" class="checkout" style="float:none;">
+                <table width="100%">
+                    <tr>
+                    	<td width="33%">
+                            <a id="back-button" data-role="backbutton" data-rel="back" data-icon="reply" data-align="left" >Geri</a>                        	
+                        </td>
+                        <td width="33%">
+                        	<span data-role="view-title" id="view-home" >
+                            <center><img id="r8app_icon" src="./styles/images/R8Applogo.png" width="82px" height="39px" /></center>
+                            </span>
+                        </td>
+                        <td width="33%">
+                            <p>
+                                
+                            </p> 
+                        </td>
+                    </tr>
+                </table>
+            </header>
+            <center>
+            <div style="visibility:visible" id="companyButtons">
+                <table id="companyList">
+                    
+                </table>           
+                <br>
+                <p id="compText" >
+                    <br>
+                </p>
+
+            </div>
+			</center> 
+            
+        </div>
+        
+        <!--Comment List-->
+        
+        <div id="tabstrip-commentList" 
+             data-role="view"  >
+            <header data-role="header" class="checkout" style="float:none;">
+                <table width="100%">
+                    <tr>
+                    	<td width="33%">
+                        	<a id="back-button" data-role="backbutton"  data-rel="back" data-icon="reply" data-align="left">Geri</a>
+                        </td>
+                        <td width="33%">
+                        	<span data-role="view-title" id="view-home" >
+                            <center><img id="r8app_icon" src="./styles/images/R8Applogo.png" width="82px" height="39px" /></center>
+                            </span>
+                        </td>
+                        <td width="33%">
+                            <p>
+                                
+                            </p> 
+                        </td>
+                    </tr>
+                </table>
+            </header>
+            <center>
+            <div style="visibility:visible" id="commentList">
+				
+                 <table id="averages" width="100%" border="1">
+                     
+                     <tr>
+                     	<td id="comp_icon_td" width ="100%" colspan="2">
+                           	<center>
+ 							<img id="comp_icon_comment" src="" width="100" height="100" border="1" style="visibility:hidden" />
+                     		</center>
+                        </td>
+                     </tr>
+                     
+                 </table>   
+                <br>
+               <div id="commText" width="100%" >
+					     
+                </div>
+				
+            </div>
+			</center>
+			<p id="height"></p>
+			<div width="100%" style="visibility:hidden;">
+				Balista
+				<br>
+				<br>
+				<br>
+				
+            </div>
+			
+        </div>
+          
+        <!--Home3-->
+        
+        <div id="tabstrip-home3" 
+             data-role="view">
+            
+            <header data-role="header" class="checkout" style="float:none;">
+                <table width="100%">
+                    <tr>
+                    	<td width="33%">
+                        	<a id="back-button" data-role="backbutton"  data-rel="back" data-icon="reply" data-align="left">Geri</a>
+                        </td>
+                        <td width="33%">
+                        	<span data-role="view-title" id="view-home" >
+                            <center><img id="r8app_icon" src="./styles/images/R8Applogo.png" width="82px" height="39px" /></center>
+                            </span>
+                        </td>
+                        <td width="33%">
+                            <p>
+                                
+                            </p> 
+                        </td>
+                    </tr>
+                </table>
+            </header>
+            <center>
+            <div style="visibility:visible" id="categoryButtons">
+                                
+                <table id="tablecategory">
+                    
+                        
+                    
+                    <tr align="center">
+                          <td>
+                              <img id="comp_icon" src="" width="150" height="150" border="1" style="visibility:hidden" />
+                          </td>  
+                    </tr>
+                                       
+                </table>
+                <p id="categorytext" >
+                    <br>
+                </p>
+
+            </div>
+			</center> 
+            
+        </div>
+         
+ 
+        <!--Login-->
+        <div id="tabstrip-login" 
+             data-role="view" >
+             
+            <!-- data-model="app.loginService.viewModel"> -->
+			<header data-role="header" class="checkout" style="float:none;">
+                <table width="100%">
+                    <tr>
+                    	<td width="33%">
+                        	<a id="back-button" data-role="backbutton"  data-rel="back" data-icon="reply" data-align="left">Geri</a>
+                        </td>
+                        <td width="33%">
+                        	<span data-role="view-title" id="view-home" >
+                            <center><img id="r8app_icon" src="./styles/images/R8Applogo.png" width="82px" height="39px" /></center>
+                            </span>
+                        </td>
+                        <td width="33%">
+                            <p>
+                                
+                            </p> 
+                        </td>
+                    </tr>
+                </table>
+            </header>
+            <div id="questions" class="question">
+                
+                <p id="sorular" >
+                      
+                    <br>
+                    
+                </p>
+                
+				
+                <div id="allquestion" >
+                    
+                </div>
+                
+                <div id="commentText" >
+                    <p>Bunun dışında yorumlarınız varsa iletebilirsiniz.</p>
+                    <textarea id="commTextArea" rows="4" cols="40" style="color:#000"></textarea>
+                </div>
+                
+                
+                <a class="buttonlar"id="abcd" data-role="button" data-click="app.sendResult"  style="width:200px; height 100px">
+                	Gönder
+                </a>
+               
+                <p id="deneme" > 
+                      
+                    <br>
+                    <br>
+                    <br>
+                </p>
+<!--
+                <button type ="button" onclick="app.sendResult()" style="width:200px; height: 60px" >
+                    Gönder
+                </button>
+ -->               
+            </div>
+            
+            
+
+        </div>
+        
+        <!--Hakkımızda-->
+        
+        <div id="tabstrip-hakkimizda" 
+             data-role="view" >
+            <header data-role="header" class="checkout" >
+                <table width="100%">
+                    <tr>
+                    	<td width="33%">
+                        	<a id="back-button" data-role="backbutton"  data-rel="back" data-icon="reply" data-align="left">Geri</a>
+                        </td>
+                        <td width="33%">
+                        	<span data-role="view-title" id="view-home" >
+                            <center><img id="r8app_icon" src="./styles/images/R8Applogo.png" width="82px" height="39px" /></center>
+                            </span>
+                        </td>
+                        <td width="33%">
+                            <p>
+                                
+                            </p> 
+                        </td>
+                    </tr>
+                </table>
+                
+                
+            </header>
+            <div style="visibility:visible" id="hakkimiz">
+				<div id="scroll-cont" >
+                <p id="category" style="font-weight:bold;">
+                     R8APP
+                    <br>
+                </p>
+
+                <p id="text" style="text-align:justify">
+                    R8App, bir ürün ya da hizmet sağlayıcısı ile bu ürünün ya da hizmetin müşterisi 
+                    arasında bir köprü kurarak müşteri memnuniyetini arttırmayı amaç edinen mobil bir uygulamadır.
+                    <br><br>
+                    <strong> Nasıl Kullanılır? </strong>
+                    <br><br>
+                    "Değerlendirme" sekmesi aracılığıyla, sisteme üye olan ürün ya da hizmet
+					sağlayıcılarını değerlendirebilirsiniz.
+                    <br><br>
+                    Sisteme üye olan kurumlarda bulunan QR kodlarını okutarak, çıkan anket sorularını cevaplayabilir ve ilgili kategorilerde
+					yorum yazabilirsiniz.
+                    <br><br>
+					Ayrıca, "Yorumlar" sekmesinden firmalara ait değerlendirme ortalamalarını ve diğer kullanıcıların yorumlarını görebilirsiniz.
+                    <br><br>
+                    <b> Farkı Nedir? </b>
+                    <br><br>
+                    QR kodlar yardımıyla sadece o ürün ya da hizmeti alan kişilerin
+					değerlendirmelerine yer verdiği için, bir ürün ya da hizmet sağlayıcısı hakkında en doğru 
+					bilgiyi sunar.
+					<br><br>
+					Bu bilgileri en sade şekilde sunduğu için, 
+					bir ürün ya da hizmet sağlayıcısı hakkında saatlerce araştırma yapmanıza gerek kalmaz.
+                    <br><br>
+					Deneyimlerinizi ürün ya da hizmet sağlayıcısı ile anında paylaştığınız için, 
+					değerlendirmelerinizin boşa gitmediğinden emin olabilirsiniz.
+					<br><br>
+					<a href="http://www.r8app.com" onclick="window.open(this.href,'_system'); return false;">http://www.r8app.com</a>
+					<br><br>
+                    <b> “En Hızlı, En Kolay, Anında Deneyim.” </b>
+                    <br><br>
+                </p>
+				<p>
+					R8App, Balista Elektronik Yazılım hizmetidir.
+                </p>
+                <p id="deneme" > 
+                      
+                    <br>
+                    <br>
+                    <br>
+                </p>
+                <p padding-bottom="200px"></p>
+				</div>
+            </div>
+            
+             
+           
+        </div>
+        
+        
+		
+
+        <!--Layout-->
+        <div data-role="layout" data-id="tabstrip-layout" >
+
+            <!--Footer-->
+            <footer data-role="footer" id="footer" >
+                <div data-role="tabstrip" class="footer">
+                    <a href="#tabstrip-home2" data-icon="home">Ana Ekran</a>
+                    <a href="#tabstrip-home3" data-icon="organize">Kategoriler</a>
+                    <a href="#tabstrip-hakkimizda" data-icon="info">Hakkımızda</a>
+					<a id="setting" data-icon="settings" >Ayarlar</a>
+                </div>
+            </footer>
+        </div>
+        
+    </body>
+</html>
